@@ -25,4 +25,5 @@ brew install stow
 - `nvim/`: Vim configuration files
 - `zed/`: Zed Code editor configs
 - `vscode/`: vscode config
+- `kitty/`: Kitty Terminal Config
 
