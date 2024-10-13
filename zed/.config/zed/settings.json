@@ -1,0 +1,168 @@
+{
+  // Theme and Appearance
+  "theme": "One Dark",
+  "experimental.theme_overrides": {},
+  "current_line_highlight": "all",
+  "show_whitespaces": "selection",
+  "scrollbar": {
+    "show": "never"
+  },
+
+  // Font Settings
+  "buffer_font_family": "Zed Plex Mono",
+  "buffer_font_size": 16,
+  "buffer_font_features": {
+    "calt": false
+  },
+  "buffer_line_height": "comfortable",
+  "ui_font_family": "Monaspace Argon",
+  "ui_font_size": 15,
+
+  // Editor Behavior
+  "vim_mode": true,
+  "base_keymap": "VSCode",
+  "tab_size": 2,
+  "soft_wrap": "editor_width",
+  "preferred_line_length": 80,
+  "cursor_blink": false,
+  "relative_line_numbers": false,
+  "vertical_scroll_margin": 0,
+  "always_treat_brackets_as_autoclosed": false,
+  "auto_signature_help": true,
+  "hover_popover_enabled": true,
+  "show_inline_completions": true,
+
+  // File Handling
+  "format_on_save": "on",
+  "ensure_final_newline_on_save": true,
+  "remove_trailing_whitespace_on_save": true,
+
+  // UI Elements
+  "project_panel": {
+    "dock": "left"
+  },
+  "tabs": { "file_icons": true },
+  "preview_tabs": {
+    "enabled": false
+  },
+  "gutter": {
+    "line_numbers": true,
+    "code_actions": true,
+    "runnables": false,
+    "folds": false
+  },
+  "indent_guides": {
+    "enabled": true,
+    "line_width": 1,
+    "active_line_width": 2,
+    "coloring": "fixed",
+    "background_coloring": "disabled"
+  },
+
+  // Features and Integrations
+  "features": {
+    "copilot": false,
+    "inline_completion_provider": "none"
+  },
+  "enable_language_server": true,
+  "formatter": "auto",
+  "auto_update": true,
+  "confirm_quit": false,
+
+  // Git Integration
+  "git": {
+    "enabled": true,
+    "autoFetch": true,
+    "autoFetchInterval": 300,
+    "autoFetchOnFocus": true,
+    "autoFetchOnWindowChange": true,
+    "autoFetchOnBuild": true,
+    "git_status": true,
+    "autoFetchOnBuildEvents": ["build", "run", "debug"],
+    "autoFetchOnBuildEventsDelay": 1500,
+    "autoFetchOnBuildDelay": 1500,
+    "git_gutter": "tracked_files",
+    "inline_blame": {
+      "enabled": true,
+      "delay_ms": 600
+    }
+  },
+
+  // Terminal Settings
+  "terminal": {
+    "alternate_scroll": "off",
+    "blinking": "terminal_controlled",
+    "copy_on_select": false,
+    "env": {},
+    "font_family": "ComicCode Nerd Font",
+    "font_features": null,
+    "font_size": 14,
+    "dock": "bottom",
+    "default_height": 320,
+    "option_as_meta": false,
+    "shell": "system",
+    "working_directory": "current_project_directory"
+  },
+
+  // Vim-specific Settings
+  "vim": {
+    "use_system_clipboard": "always",
+    "use_multiline_find": true
+  },
+
+  // Language-specific Settings
+  "languages": {
+    "JavaScript": {
+      "format_on_save": {
+        "external": {
+          "command": "prettier",
+          "arguments": ["--stdin-filepath", "{buffer_path}"]
+        }
+      }
+    },
+    "TypeScript": {
+      "format_on_save": {
+        "external": {
+          "command": "prettier",
+          "arguments": ["--stdin-filepath", "{buffer_path}"]
+        }
+      }
+    },
+    "CSS": {
+      "format_on_save": {
+        "external": {
+          "command": "prettier",
+          "arguments": ["--stdin-filepath", "{buffer_path}"]
+        }
+      }
+    },
+    "HTML": {
+      "format_on_save": {
+        "external": {
+          "command": "prettier",
+          "arguments": ["--stdin-filepath", "{buffer_path}"]
+        }
+      }
+    }
+  },
+
+  // LSP Settings
+  "lsp": {
+    "typescript-language-server": {
+      "initialization_options": {
+        "preferences": {
+          "importModuleSpecifierPreference": "relative"
+        }
+      }
+    }
+  },
+
+  // AI Assistant Settings
+  "assistant": {
+    "default_model": {
+      "provider": "zed.dev",
+      "model": "claude-3-5-sonnet-20240620"
+    },
+    "version": "2"
+  }
+}
