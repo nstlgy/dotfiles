@@ -5,7 +5,7 @@
   "current_line_highlight": "all",
   "show_whitespaces": "selection",
   "scrollbar": {
-    "show": "never"
+    "show": "auto"
   },
 
   // Font Settings
@@ -23,14 +23,16 @@
   "base_keymap": "VSCode",
   "tab_size": 2,
   "soft_wrap": "editor_width",
-  "preferred_line_length": 80,
+  "preferred_line_length": 100,
   "cursor_blink": false,
   "relative_line_numbers": false,
   "vertical_scroll_margin": 0,
   "always_treat_brackets_as_autoclosed": false,
-  "auto_signature_help": true,
+  "auto_signature_help": false,
   "hover_popover_enabled": true,
   "show_inline_completions": true,
+  "show_completion_documentation": true,
+  "show_signature_help_after_edits": false,
 
   // File Handling
   "format_on_save": "on",
@@ -39,7 +41,10 @@
 
   // UI Elements
   "project_panel": {
-    "dock": "left"
+    "dock": "left",
+    "scrollbar": {
+      "show": "never"
+    }
   },
   "tabs": { "file_icons": true },
   "preview_tabs": {
@@ -110,6 +115,20 @@
     "use_multiline_find": true
   },
 
+  // file types
+  "file_types": {
+    "Plain Text": ["txt"],
+    "JSON": ["flake.lock"],
+    "JSONC": [
+      "**/.zed/**/*.json",
+      "**/zed/**/*.json",
+      "**/Zed/**/*.json",
+      "tsconfig.json",
+      "pyrightconfig.json"
+    ],
+    "TOML": ["uv.lock"]
+    // "HTML": ["ejs"]
+  },
   // Language-specific Settings
   "languages": {
     "JavaScript": {
