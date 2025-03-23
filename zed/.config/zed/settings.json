@@ -1,42 +1,58 @@
 {
   // Theme and Appearance
-  "theme": "One Dark Pro",
-  "experimental.theme_overrides": {},
+  "icon_theme": "Colored Zed Icons Theme Dark",
+  "theme": "Ayu Nicer",
+  "experimental.theme_overrides": {
+    "terminal.ansi.bright_black": "#4f5666",
+    "syntax": {
+      "comment": {
+        "color": "#b8cfe680",
+        "font_style": "italic",
+        "font_weight": null
+      }
+    }
+  },
   "current_line_highlight": "all",
   "show_whitespaces": "selection",
   "scrollbar": {
-    "show": "auto"
+    "show": "never"
+  },
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false
   },
 
   // Font Settings
-  "buffer_font_family": "Zed Plex Mono",
-  "buffer_font_size": 16,
+  "buffer_font_family": "Monaspace Argon",
+  "buffer_font_size": 14,
   "buffer_font_features": {
     "calt": false
   },
   "buffer_line_height": "comfortable",
   "ui_font_family": "Monaspace Argon",
-  "ui_font_size": 15,
+  "ui_font_size": 14,
 
   // Editor Behavior
   "vim_mode": true,
   "base_keymap": "VSCode",
   "tab_size": 2,
-  "soft_wrap": "editor_width",
-  "preferred_line_length": 100,
+  "soft_wrap": "preferred_line_length",
+  "preferred_line_length": 80,
+  "use_autoclose": true,
+  "show_wrap_guides": false,
   "cursor_blink": false,
   "relative_line_numbers": false,
-  "vertical_scroll_margin": 0,
+  "vertical_scroll_margin": 5,
   "always_treat_brackets_as_autoclosed": false,
   "auto_signature_help": false,
   "hover_popover_enabled": true,
-  "show_inline_completions": true,
+  "show_edit_predictions": false,
   "show_completion_documentation": true,
   "show_signature_help_after_edits": false,
 
   // File Handling
   "format_on_save": "on",
-  "ensure_final_newline_on_save": true,
+  "ensure_final_newline_on_save": false,
   "remove_trailing_whitespace_on_save": true,
 
   // UI Elements
@@ -44,9 +60,12 @@
     "dock": "left",
     "scrollbar": {
       "show": "never"
-    }
+    },
+    "auto_fold_dirs": false
   },
-  "tabs": { "file_icons": true },
+  "tabs": {
+    "file_icons": true
+  },
   "preview_tabs": {
     "enabled": false
   },
@@ -54,20 +73,19 @@
     "line_numbers": true,
     "code_actions": true,
     "runnables": false,
-    "folds": false
+    "folds": true
   },
   "indent_guides": {
     "enabled": true,
     "line_width": 1,
     "active_line_width": 2,
-    "coloring": "fixed",
+    "coloring": "indent_aware",
     "background_coloring": "disabled"
   },
-
   // Features and Integrations
   "features": {
     "copilot": false,
-    "inline_completion_provider": "none"
+    "edit_prediction_provider": "zed"
   },
   "enable_language_server": true,
   "formatter": "auto",
@@ -92,7 +110,6 @@
       "delay_ms": 600
     }
   },
-
   // Terminal Settings
   "terminal": {
     "alternate_scroll": "off",
@@ -108,80 +125,179 @@
     "shell": "system",
     "working_directory": "current_project_directory"
   },
-
   // Vim-specific Settings
   "vim": {
     "use_system_clipboard": "always",
     "use_multiline_find": true
   },
-
-  // file types
-  "file_types": {
-    "Plain Text": ["txt"],
-    "JSON": ["flake.lock"],
-    "JSONC": [
-      "**/.zed/**/*.json",
-      "**/zed/**/*.json",
-      "**/Zed/**/*.json",
-      "tsconfig.json",
-      "pyrightconfig.json"
-    ],
-    "TOML": ["uv.lock"]
-    // "HTML": ["ejs"]
-  },
-  // Language-specific Settings
-  "languages": {
-    "JavaScript": {
-      "format_on_save": {
-        "external": {
-          "command": "prettier",
-          "arguments": ["--stdin-filepath", "{buffer_path}"]
-        }
-      }
-    },
-    "TypeScript": {
-      "format_on_save": {
-        "external": {
-          "command": "prettier",
-          "arguments": ["--stdin-filepath", "{buffer_path}"]
-        }
-      }
-    },
-    "CSS": {
-      "format_on_save": {
-        "external": {
-          "command": "prettier",
-          "arguments": ["--stdin-filepath", "{buffer_path}"]
-        }
-      }
-    },
-    "HTML": {
-      "format_on_save": {
-        "external": {
-          "command": "prettier",
-          "arguments": ["--stdin-filepath", "{buffer_path}"]
-        }
-      }
-    }
-  },
-
-  // LSP Settings
-  "lsp": {
-    "typescript-language-server": {
-      "initialization_options": {
-        "preferences": {
-          "importModuleSpecifierPreference": "relative"
-        }
-      }
-    }
-  },
-
   // AI Assistant Settings
   "assistant": {
     "default_model": {
       "provider": "zed.dev",
-      "model": "claude-3-5-sonnet-20240620"
+      "model": "claude-3-5-sonnet-latest"
     },
     "version": "2"
+  },
+  "languages": {
+    "Astro": {
+      "language_servers": ["astro-language-server", "..."],
+      "prettier": {
+        "allowed": true,
+        "plugins": ["prettier-plugin-astro"]
+      }
+    },
+    "Blade": {
+      "prettier": {
+        "allowed": true
+      }
+    },
+    "C": {
+      "format_on_save": "off",
+      "use_on_type_format": false,
+      "prettier": {
+        "allowed": false
+      }
+    },
+    "C++": {
+      "format_on_save": "off",
+      "use_on_type_format": false,
+      "prettier": {
+        "allowed": false
+      }
+    },
+    "CSS": {
+      "prettier": {
+        "allowed": true
+      }
+    },
+    "Dart": {
+      "tab_size": 2
+    },
+    "Diff": {
+      "remove_trailing_whitespace_on_save": false,
+      "ensure_final_newline_on_save": false
+    },
+    "Elixir": {
+      "language_servers": ["elixir-ls", "!next-ls", "!lexical", "..."]
+    },
+    "Erlang": {
+      "language_servers": ["erlang-ls", "!elp", "..."]
+    },
+    "Go": {
+      "code_actions_on_format": {
+        "source.organizeImports": true
+      }
+    },
+    "GraphQL": {
+      "prettier": {
+        "allowed": true
+      }
+    },
+    "HEEX": {
+      "language_servers": ["elixir-ls", "!next-ls", "!lexical", "..."]
+    },
+    "HTML": {
+      "prettier": {
+        "allowed": true
+      }
+    },
+    "Java": {
+      "prettier": {
+        "allowed": true,
+        "plugins": ["prettier-plugin-java"]
+      }
+    },
+    "JavaScript": {
+      "language_servers": ["!typescript-language-server", "vtsls", "..."],
+      "prettier": {
+        "allowed": true
+      }
+    },
+    "JSON": {
+      "prettier": {
+        "allowed": true
+      }
+    },
+    "JSONC": {
+      "prettier": {
+        "allowed": true
+      }
+    },
+    "Markdown": {
+      "format_on_save": "off",
+      "use_on_type_format": false,
+      "prettier": {
+        "allowed": true
+      }
+    },
+    "PHP": {
+      "language_servers": ["phpactor", "!intelephense", "..."],
+      "prettier": {
+        "allowed": true,
+        "plugins": ["@prettier/plugin-php"],
+        "parser": "php"
+      }
+    },
+    "Ruby": {
+      "language_servers": ["solargraph", "!ruby-lsp", "!rubocop", "..."]
+    },
+    "SCSS": {
+      "prettier": {
+        "allowed": true
+      }
+    },
+    "SQL": {
+      "prettier": {
+        "allowed": true,
+        "plugins": ["prettier-plugin-sql"]
+      }
+    },
+    "Starlark": {
+      "language_servers": ["starpls", "!buck2-lsp", "..."]
+    },
+    "Svelte": {
+      "language_servers": ["svelte-language-server", "..."],
+      "prettier": {
+        "allowed": true,
+        "plugins": ["prettier-plugin-svelte"]
+      }
+    },
+    "TSX": {
+      "language_servers": ["!typescript-language-server", "vtsls", "..."],
+      "prettier": {
+        "allowed": true
+      }
+    },
+    "Twig": {
+      "prettier": {
+        "allowed": true
+      }
+    },
+    "TypeScript": {
+      "language_servers": ["!typescript-language-server", "vtsls", "..."],
+      "prettier": {
+        "allowed": true
+      }
+    },
+    "Vue.js": {
+      "language_servers": ["vue-language-server", "..."],
+      "prettier": {
+        "allowed": true
+      }
+    },
+    "XML": {
+      "prettier": {
+        "allowed": true,
+        "plugins": ["@prettier/plugin-xml"]
+      }
+    },
+    "YAML": {
+      "prettier": {
+        "allowed": true
+      }
+    },
+    "Zig": {
+      "language_servers": ["zls", "..."]
+    }
   }
 }

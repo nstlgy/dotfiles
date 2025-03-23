@@ -114,17 +114,18 @@ return {
 
     local mason_lspconfig = require("mason-lspconfig")
 
-    mason_lspconfig.setup_handlers({
-      function(server_name)
-        require("lspconfig")[server_name].setup({
-          capabilities = capabilities,
-          -- on_attach = require("plugins.lsp.on_attach").on_attach,
-          settings = require("plugins.lsp.servers")[server_name],
-          filetypes = (require("plugins.lsp.servers")[server_name] or {}).filetypes,
-        })
-      end,
-    })
 
+mason_lspconfig.setup_handlers({
+  function(server_name)
+    if server_name ~= "tsserver" then  -- Exclude tsserver
+      require("lspconfig")[server_name].setup({
+        capabilities = capabilities,
+        settings = require("plugins.lsp.servers")[server_name],
+        filetypes = (require("plugins.lsp.servers")[server_name] or {}).filetypes,
+      })
+    end
+  end,
+})
     -- Gleam LSP
     -- For some reason mason doesn't work with gleam lsp
     require("lspconfig").gleam.setup({

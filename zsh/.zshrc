@@ -46,3 +46,6 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 # alias ohmyzsh="nano ~/.oh-my-zsh"
 
 eval "$(zoxide init --cmd cd zsh )"
+
+# Created by `pipx` on 2024-12-03 11:32:43
+export PATH="$PATH:/Users/ainz/.local/bin"
